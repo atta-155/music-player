@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Box, Card, CssBaseline } from '@mui/material';
+import MainContent from './components/MainContent';
+import MusicPlayer from './components/MusicPlayer';
+import Sidebar from './components/Sidebar';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box sx={(theme) => ({display: 'flex', flexDirection: 'column',  backgroundColor: theme.palette.primary.main })}>
+      <CssBaseline />
+      <Card elevation={4} sx={{ display: 'flex', flex: 1, mb: 2,borderRadius: '0 0 64px 64px' }}>
+        <Sidebar />
+        <MainContent />
+      </Card>
+      <MusicPlayer />
+    </Box>
   );
-}
+};
 
 export default App;
